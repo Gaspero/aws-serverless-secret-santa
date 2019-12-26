@@ -1,0 +1,25 @@
+{
+    "getGift": {
+        "lambda": {
+            "giftId": 1
+        },
+        "apigateway": {
+            "path": "/getGift",
+            "method": {
+                "value": "POST",
+                "items": [
+                    "GET",
+                    "POST",
+                    "PUT",
+                    "DELETE",
+                    "HEAD",
+                    "OPTIONS",
+                    "PATCH"
+                ]
+            },
+            "body": {
+                "giftId": 1
+            }
+        }
+    }
+}

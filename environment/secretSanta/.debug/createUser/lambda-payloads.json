@@ -1,0 +1,27 @@
+{
+    "createUser": {
+        "lambda": {
+            "name": "Ivan",
+            "email": "ivan@email.com"
+        },
+        "apigateway": {
+            "path": "/createUser",
+            "method": {
+                "value": "POST",
+                "items": [
+                    "GET",
+                    "POST",
+                    "PUT",
+                    "DELETE",
+                    "HEAD",
+                    "OPTIONS",
+                    "PATCH"
+                ]
+            },
+            "body": {
+                "name": "Ivan",
+                "email": "ivan@email.com"
+            }
+        }
+    }
+}

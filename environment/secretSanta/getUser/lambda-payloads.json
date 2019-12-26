@@ -1,0 +1,23 @@
+{
+    "getUser": {
+        "lambda": {
+            "userId": 1
+        },
+        "apigateway": {
+            "path": "/getUser",
+            "method": {
+                "value": "GET",
+                "items": [
+                    "GET",
+                    "POST",
+                    "PUT",
+                    "DELETE",
+                    "HEAD",
+                    "OPTIONS",
+                    "PATCH"
+                ]
+            },
+            "queryString": "userId=1"
+        }
+    }
+}

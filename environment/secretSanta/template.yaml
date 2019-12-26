@@ -1,0 +1,117 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: An AWS Serverless Specification template describing your function.
+Resources:
+  addUser:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: addUser/lambda_function.lambda_handler
+      Runtime: python3.6
+      Description: ''
+      MemorySize: 128
+      Timeout: 15
+      CodeUri: .debug/
+      Events:
+        LambdaMicroservice:
+          Type: Api
+          Properties:
+            Path: /addUser
+            Method: ANY
+  addUserPermission:
+    Type: 'AWS::Lambda::Permission'
+    Properties:
+      Action: 'lambda:InvokeFunction'
+      FunctionName:
+        'Fn::GetAtt':
+          - addUser
+          - Arn
+      Principal: apigateway.amazonaws.com
+      SourceArn:
+        'Fn::Sub': 'arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:*/*/*/*'
+  addGift:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: addGift/lambda_function.lambda_handler
+      Runtime: python3.6
+      Description: ''
+      MemorySize: 128
+      Timeout: 15
+      CodeUri: .debug/
+  getUser:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: getUser/lambda_function.lambda_handler
+      Runtime: python3.6
+      Description: ''
+      MemorySize: 128
+      Timeout: 15
+      CodeUri: .debug/
+      Events:
+        LambdaMicroservice:
+          Type: Api
+          Properties:
+            Path: /getUser
+            Method: ANY
+  getUserPermission:
+    Type: 'AWS::Lambda::Permission'
+    Properties:
+      Action: 'lambda:InvokeFunction'
+      FunctionName:
+        'Fn::GetAtt':
+          - getUser
+          - Arn
+      Principal: apigateway.amazonaws.com
+      SourceArn:
+        'Fn::Sub': 'arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:*/*/*/*'
+  getGift:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: getGift/lambda_function.lambda_handler
+      Runtime: python3.6
+      Description: ''
+      MemorySize: 128
+      Timeout: 15
+      CodeUri: .debug/
+      Events:
+        LambdaMicroservice:
+          Type: Api
+          Properties:
+            Path: /getGift
+            Method: ANY
+  getGiftPermission:
+    Type: 'AWS::Lambda::Permission'
+    Properties:
+      Action: 'lambda:InvokeFunction'
+      FunctionName:
+        'Fn::GetAtt':
+          - getGift
+          - Arn
+      Principal: apigateway.amazonaws.com
+      SourceArn:
+        'Fn::Sub': 'arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:*/*/*/*'
+  createUserFunction:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: createUserFunction/lambda_function.lambda_handler
+      Runtime: python3.6
+      Description: ''
+      MemorySize: 128
+      Timeout: 15
+      CodeUri: .debug/
+      Events:
+        LambdaMicroservice:
+          Type: Api
+          Properties:
+            Path: /createUser
+            Method: ANY
+  createUserFunctionPermission:
+    Type: 'AWS::Lambda::Permission'
+    Properties:
+      Action: 'lambda:InvokeFunction'
+      FunctionName:
+        'Fn::GetAtt':
+          - createUserFunction
+          - Arn
+      Principal: apigateway.amazonaws.com
+      SourceArn:
+        'Fn::Sub': 'arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:*/*/*/*'

@@ -1,0 +1,54 @@
+{
+    "createUser": {
+        "lambda": {
+            "name": "Ivan",
+            "email": "ivan@email.com"
+        },
+        "apigateway": {
+            "path": "/createUser",
+            "method": {
+                "value": "POST",
+                "items": [
+                    "GET",
+                    "POST",
+                    "PUT",
+                    "DELETE",
+                    "HEAD",
+                    "OPTIONS",
+                    "PATCH"
+                ]
+            },
+            "body": {
+                "name": "Ivan",
+                "email": "ivan@email.com"
+            }
+        }
+    },
+    "addeUser": {
+        "lambda": {
+            "name": "Ivanka",
+            "email": "Ivanka@email.com"
+        }
+    },
+    "addUser": {
+        "apigateway": {
+            "path": "/addUser",
+            "method": {
+                "value": "POST",
+                "items": [
+                    "GET",
+                    "POST",
+                    "PUT",
+                    "DELETE",
+                    "HEAD",
+                    "OPTIONS",
+                    "PATCH"
+                ]
+            },
+            "body": {
+                "name": "thisshitfinallyworks",
+                "email": "yeah@email.com"
+            }
+        }
+    }
+}

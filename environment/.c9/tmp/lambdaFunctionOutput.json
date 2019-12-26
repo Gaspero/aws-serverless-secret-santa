@@ -1,0 +1,1 @@
+{"isBase64Encode": "false", "statusCode": "200", "body": "{\"id\": 15, \"name\": \"Yo\", \"email\": \"yoyo@mail.ru\"}", "headers": {"Content-Type": "application/json", "Access-Control-Allow-Origin": "*"}}

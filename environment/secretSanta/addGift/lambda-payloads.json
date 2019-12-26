@@ -1,0 +1,18 @@
+{
+    "addGiftOnUpload": {
+        "lambda": {}
+    },
+    "addGift": {
+        "lambda": {
+            "Records": [
+                {
+                    "s3": {
+                        "object": {
+                            "key": "SecondTowel"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}
