@@ -76,7 +76,6 @@ def lambda_handler(event, context):
         
     operation = event['httpMethod']
     print(operation)
-    print(json.loads(event['body']))
         
     if operation in operations:
         payload = json.loads(event['body']) if operation == 'POST' else json.loads('')

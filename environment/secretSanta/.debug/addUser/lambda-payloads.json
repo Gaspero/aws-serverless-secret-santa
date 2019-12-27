@@ -34,7 +34,7 @@
         "apigateway": {
             "path": "/addUser",
             "method": {
-                "value": "POST",
+                "value": "GET",
                 "items": [
                     "GET",
                     "POST",
@@ -44,10 +44,6 @@
                     "OPTIONS",
                     "PATCH"
                 ]
-            },
-            "body": {
-                "name": "thisshitfinallyworks",
-                "email": "yeah@email.com"
             }
         }
     }
