@@ -49,7 +49,21 @@ def lambda_handler(event, context):
             with connection.cursor() as cursor:
                 userId = str(payload.get('userId'))
                 # получаем записанную запись по переданным параметрам
-                sql = "SELECT * FROM public.users WHERE id=%s"
+                # sql = "SELECT * FROM public.users WHERE id=%s"
+                sql = """
+                    SELECT 
+                    	public.users.id,
+                    	public.users.name,
+                    	public.users.email,
+                    	public.desiredGiftRelation.giftId,
+                    	rel1.receiverId,
+                    	rel2.secretSantaId
+                    FROM public.users
+                    LEFT JOIN public.desiredGiftRelation ON public.users.id = public.desiredGiftRelation.userId
+                    LEFT JOIN public.secretSantaRelation as rel1 ON public.users.id = rel1.secretSantaId
+                    LEFT JOIN public.secretSantaRelation as rel2 ON public.users.id = rel2.receiverId
+                    WHERE public.users.id=%s
+                """
                 cursor.execute(sql, userId)
                 result = cursor.fetchone()
                 return (result)
